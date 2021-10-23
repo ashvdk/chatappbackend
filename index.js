@@ -2,7 +2,7 @@ var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http, {
     cors: {
-      origin: "https://ashvdk.github.io/chatapp/",
+      origin: "https://ashvdk.github.io",
     },
 });
 
