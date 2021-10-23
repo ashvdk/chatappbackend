@@ -66,7 +66,7 @@ io.on("connection", (socket) => {
   //   });
   // });
 });
-
-http.listen(5000, () => {
-    console.log('listening on *:5000');
+var port = process.env.PORT || 8080;
+http.listen(port, () => {
+    console.log(`listening on *: ${port}`);
 });
