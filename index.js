@@ -9,6 +9,11 @@ var io = require('socket.io')(http, {
 
 const users = {};
 
+app.get('/', (req, res) => {
+  io.emit('get user', users);
+  res.send('<h1>We are here</h1>');
+});
+
 io.use((socket, next) => {
     const username = socket.handshake.auth.username;
     if (!username) {
@@ -18,10 +23,7 @@ io.use((socket, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-  io.emit('get user', users);
-  res.send('<h1>We are here</h1>');
-});
+
 
 io.on("connection", (socket) => {
   socket.removeAllListeners();
