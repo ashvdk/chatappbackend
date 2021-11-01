@@ -2,7 +2,7 @@ var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http, {
     cors: {
-      origin: "https://ashvdk.github.io",
+      origin: ["https://ashvdk.github.io", "http://localhost:3000"],
     },
 });
 
@@ -31,15 +31,15 @@ io.on("connection", (socket) => {
   //console.log(io.of("/").sockets);
   for (let [id, socket] of io.of("/").sockets) {
     const { username } = socket.handshake.auth;
-    if(users[username]){
+    // if(users[username]){
 
-    }
-    else {
+    // }
+    // else {
       users[username] = {
         socketid: id,
         username,
       }
-    }
+    //}
     console.log(users[username]);
     io.to(users[username].socketid).emit("send_connected_user_info", users[username]);
   }
