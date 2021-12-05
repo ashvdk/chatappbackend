@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.12",
+    "sessionstore": "^1.3.7",
     "socket.io": "^4.2.0"
   },
   "engines": {
