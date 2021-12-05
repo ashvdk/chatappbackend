@@ -2,7 +2,7 @@ var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http, {
     cors: {
-      origin: ["https://ashvdk.github.io", "http://localhost:3000", "http://localhost:8100"],
+      origin: ["*"],
     },
 });
 
